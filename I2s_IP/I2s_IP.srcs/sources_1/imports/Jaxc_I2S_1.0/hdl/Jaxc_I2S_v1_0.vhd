@@ -180,7 +180,7 @@ BCLK_gen: CLK_DIV
            
 PBLRC_gen: CLK_DIV
      generic map(Division_factor => 64,
-          pos_edge => 1)
+          pos_edge => 0)
      Port map( CLK_in => BCLK_int,
           RSTN => S_AXI_ARESETN,
           CLK_out => PBLRC_int);
