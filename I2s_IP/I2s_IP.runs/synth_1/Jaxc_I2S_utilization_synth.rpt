@@ -1,13 +1,13 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Wed Dec 21 14:10:33 2016
+| Date         : Wed Dec 21 15:35:04 2016
 | Host         : Lappytoppy running 64-bit Linux Mint 17.2 Rafaela
-| Command      : report_utilization -file Jaxc_I2S_v1_0_utilization_synth.rpt -pb Jaxc_I2S_v1_0_utilization_synth.pb
-| Design       : Jaxc_I2S_v1_0
+| Command      : report_utilization -file Jaxc_I2S_utilization_synth.rpt -pb Jaxc_I2S_utilization_synth.pb
+| Design       : Jaxc_I2S
 | Device       : 7z010clg400-1
 | Design State : Synthesized
----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
 
 Utilization Design Information
 
@@ -55,9 +55,9 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 194   |          Yes |           - |        Reset |
+| 202   |          Yes |           - |        Reset |
 | 14    |          Yes |         Set |            - |
-| 237   |          Yes |       Reset |            - |
+| 229   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -147,9 +147,9 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  237 |        Flop & Latch |
-| FDCE     |  194 |        Flop & Latch |
-| LUT3     |   82 |                 LUT |
+| FDRE     |  229 |        Flop & Latch |
+| FDCE     |  202 |        Flop & Latch |
+| LUT3     |   81 |                 LUT |
 | IBUF     |   57 |                  IO |
 | OBUF     |   47 |                  IO |
 | LUT5     |   36 |                 LUT |
@@ -157,7 +157,7 @@ Table of Contents
 | FDSE     |   14 |        Flop & Latch |
 | LUT2     |   11 |                 LUT |
 | LUT6     |    7 |                 LUT |
-| LUT1     |    6 |                 LUT |
+| LUT1     |    7 |                 LUT |
 | BUFG     |    2 |               Clock |
 | RAMB36E1 |    1 |        Block Memory |
 +----------+------+---------------------+

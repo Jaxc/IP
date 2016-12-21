@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 library work;
 use work.AXI4_lite.all;
 
-entity Jaxc_I2S_v1_0 is
+entity Jaxc_I2S is
 	generic (
 		-- Users to add parameters here
 
@@ -57,9 +57,9 @@ entity Jaxc_I2S_v1_0 is
 		s_axi_rvalid	: out std_logic;
 		s_axi_rready	: in std_logic
 	);
-end Jaxc_I2S_v1_0;
+end Jaxc_I2S;
 
-architecture arch_imp of Jaxc_I2S_v1_0 is
+architecture arch_imp of Jaxc_I2S is
 
 component clk_wiz_0
 port
@@ -165,7 +165,7 @@ MCLK_gen: clk_wiz_0
   -- Clock out ports  
    clk_out1 => MCLK_int,
   -- Status and control signals                
-   reset => s_axi_aresetn,
+   reset => not(s_axi_aresetn),
    locked => open,
    -- Clock in ports
    clk_in1 => clk_100M

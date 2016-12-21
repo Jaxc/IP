@@ -49,27 +49,23 @@ begin
 
 process(RSTN,CLK_in)
 begin
-	if pos_edge = 0 then
-		if falling_Edge(CLK_in) then
-			if (RSTN = '0') then
-			cnt <= 0;
-			CLK_out_int <= '0';
-			else 
-
-				if (cnt = (Division_factor/2)-1) then
-					cnt <= 0;
-					CLK_out_int <= not CLK_out_int;
-				else 
-					cnt <= cnt+1;
-				end if;
-			end if;
-		end if;
+	if (RSTN = '0') then
+		cnt <= 0;
+		CLK_out_int <= '0';
 	else
-		if rising_Edge(CLK_in) then
-			if (RSTN = '0') then
-			cnt <= 0;
-			CLK_out_int <= '0';
-			else 
+		if pos_edge = 0 then
+			if falling_Edge(CLK_in) then
+				
+				if (cnt = (Division_factor/2)-1) then
+					cnt <= 0;
+					CLK_out_int <= not CLK_out_int;
+				else 
+					cnt <= cnt+1;
+				end if;
+			end if;
+		else
+			if rising_Edge(CLK_in) then
+				
 
 				if (cnt = (Division_factor/2)-1) then
 					cnt <= 0;
@@ -79,7 +75,7 @@ begin
 				end if;
 			end if;
 		end if;
-	end if;
+	END IF;
 end process;
 
 CLK_out <= CLK_out_int;

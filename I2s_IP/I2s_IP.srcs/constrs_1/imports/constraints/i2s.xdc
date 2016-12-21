@@ -9,3 +9,8 @@ set_false_path -rise_from [get_clocks s_axi_aclk] -fall_to [get_clocks BCLK]
 set_false_path -fall_from [get_clocks BCLK] -rise_to [get_clocks s_axi_aclk]
 
 #create_clock -period 20833.000 -name PBLRC -waveform {0.000 10416.500} [get_ports PBLRC]
+
+create_clock -period 10.000 -name CLK_100M -waveform {0.000 5.000} [get_ports CLK_100M]
+create_clock -period 81.380 -name MCLK -waveform {0.000 40.690} [get_ports MCLK]
+
+create_clock -period 20833.000 -name PBRLC -waveform {0.000 10416.500} [get_ports PBLRC]

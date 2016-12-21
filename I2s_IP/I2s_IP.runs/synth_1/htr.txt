@@ -6,4 +6,4 @@
 # Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 #
 
-vivado -log Jaxc_I2S_v1_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Jaxc_I2S_v1_0.tcl
+vivado -log Jaxc_I2S.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Jaxc_I2S.tcl

@@ -44,13 +44,15 @@ architecture Behavioral of synthtop is
 		-- Width of S_AXI address bus
 		constant C_S_AXI_ADDR_WIDTH	: integer	:= 11;
 
-component Jaxc_slave_AXI 
+component Jaxc_I2S 
 	port (
 		-- Users to add ports here
-
+		CLK_100M	: IN 	std_logic;
 		PBDAT 		: out 	std_logic;	-- Audio data out
-		BCLK		: in 	std_logic;	-- Bit clock
-		PBLRC		: in 	std_logic;	-- Playback sample clock (44100 Hz)
+		BCLK		: out 	std_logic;	-- Bit clock
+		PBLRC		: out 	std_logic;	-- Playback sample clock (44100 Hz)
+
+		MCLK 		: out 	std_logic;
 
 		MUTE 		: out 	std_logic;	-- Mute audio output
 
@@ -68,8 +70,25 @@ component Jaxc_slave_AXI
 		-- Global Reset Signal. This Signal is Active LOW
 		S_AXI_ARESETN	: in std_logic;
 		-- Write address (issued by master, acceped by Slave)
-		S_AXI_in : in AXI4_lite_slave_in;
-		S_AXI_out : out AXI4_lite_slave_out
+		s_axi_awaddr	: in std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
+		s_axi_awprot	: in std_logic_vector(2 downto 0);
+		s_axi_awvalid	: in std_logic;
+		s_axi_awready	: out std_logic;
+		s_axi_wdata	: in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
+		s_axi_wstrb	: in std_logic_vector((C_S_AXI_DATA_WIDTH/8)-1 downto 0);
+		s_axi_wvalid	: in std_logic;
+		s_axi_wready	: out std_logic;
+		s_axi_bresp	: out std_logic_vector(1 downto 0);
+		s_axi_bvalid	: out std_logic;
+		s_axi_bready	: in std_logic;
+		s_axi_araddr	: in std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
+		s_axi_arprot	: in std_logic_vector(2 downto 0);
+		s_axi_arvalid	: in std_logic;
+		s_axi_arready	: out std_logic;
+		s_axi_rdata	: out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
+		s_axi_rresp	: out std_logic_vector(1 downto 0);
+		s_axi_rvalid	: out std_logic;
+		s_axi_rready	: in std_logic
 	);
 end component;
 
@@ -174,28 +193,6 @@ begin
 M_AXI_ACLK <= not M_AXI_ACLK after 5 ns;
 M_AXI_ARESETN <= '1' after 100 ns;
 
-
-MCLK <= not MCLK after 40690.104166667 ps;
-
-process(MCLK)
-begin
-	if rising_edge(MCLK) then
-		if counter = 1 then
-			BCLK <= not BCLK;
-			counter <= 0;
-		else
-			counter <= counter +1;
-		end if;
-
-		if cnt = 127 then
-			PBLRC <= not PBLRC;
-			cnt <= 0;
-		else 
-			cnt <= cnt +1;
-		end if;
-	end if;
-end process;
-
 DATA_in <= (OTHERS => '1');
 
 Master : AXI_sim_master_top
@@ -250,17 +247,36 @@ Master : AXI_sim_master_top
 
 
 
-  slave : Jaxc_slave_AXI
+  slave : Jaxc_I2S
     port map(
+    	CLK_100M	=> M_AXI_ACLK,
     	PBDAT 		=> PBDAT,
 		BCLK		=> BCLK,
 		PBLRC		=> PBLRC,
+		MCLK 		=> MCLK,
 
 		MUTE 		=> MUTE,
 
     	S_AXI_ACLK	=> M_AXI_ACLK,
 		S_AXI_ARESETN	=> M_AXI_ARESETN,
-		S_AXI_in => S_AXI_in,
-		S_AXI_out => S_AXI_out);
+		S_AXI_AWADDR	=> M_AXI_AWADDR,
+		s_AXI_AWPROT	=> M_AXI_AWPROT,
+		s_AXI_AWVALID	=> M_AXI_AWVALID,
+		s_AXI_AWREADY	=> M_AXI_AWREADY,
+		s_AXI_WDATA	=> M_AXI_WDATA,
+		s_AXI_WSTRB	=> M_AXI_WSTRB,
+		S_AXI_WVALID	=> M_AXI_WVALID,
+		S_AXI_WREADY	=> M_AXI_WREADY,
+		S_AXI_BRESP	=> M_AXI_BRESP,
+		S_AXI_BVALID	=> M_AXI_BVALID,
+		S_AXI_BREADY	=> M_AXI_BREADY,
+		S_AXI_ARADDR	=> M_AXI_ARADDR,
+		S_AXI_ARPROT	=> M_AXI_ARPROT,
+		S_AXI_ARVALID	=> M_AXI_ARVALID,
+		S_AXI_ARREADY	=> M_AXI_ARREADY,
+		S_AXI_RDATA	=> M_AXI_RDATA,
+		S_AXI_RRESP	=> M_AXI_RRESP,
+		S_AXI_RVALID	=> M_AXI_RVALID,
+		S_AXI_RREADY	=> M_AXI_RREADY);
 
 end Behavioral;

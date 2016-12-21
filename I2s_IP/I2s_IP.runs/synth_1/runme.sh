@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log Jaxc_I2S_v1_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Jaxc_I2S_v1_0.tcl
+EAStep vivado -log Jaxc_I2S.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Jaxc_I2S.tcl
