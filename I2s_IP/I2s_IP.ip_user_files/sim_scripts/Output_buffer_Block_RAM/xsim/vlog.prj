@@ -1,0 +1,5 @@
+verilog xil_defaultlib "../../../ip/Output_buffer_Block_RAM/sim/Output_buffer_Block_RAM.v" 
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

@@ -1,0 +1,1 @@
+clk_wiz_0_sim_netlist.vhdl,vhdl,xil_defaultlib,../../../ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl,incdir="../../../ipstatic"

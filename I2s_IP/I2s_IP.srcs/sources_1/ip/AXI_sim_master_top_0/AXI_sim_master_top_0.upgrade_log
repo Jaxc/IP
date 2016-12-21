@@ -1,0 +1,68 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2015.2.1 (lin64) Build 1302555 Wed Aug  5 13:06:02 MDT 2015
+| Date         : Tue Nov  3 18:20:06 2015
+| Host         : Lappytoppy running 64-bit Linux Mint 17.2 Rafaela
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'AXI_sim_master_top_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of AXI_sim_master_top_0 (Jaxcie.org:user:AXI_sim_master_top:1.0) from (Rev. 3) to (Rev. 4)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading IP 'AXI_sim_master_top_0'. These changes may impact your design.
+
+
+-upgrade has added port 'DATA_in'
+
+
+
+
+
+
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2015.2.1 (lin64) Build 1302555 Wed Aug  5 13:06:02 MDT 2015
+| Date         : Tue Nov  3 18:13:46 2015
+| Host         : Lappytoppy running 64-bit Linux Mint 17.2 Rafaela
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'AXI_sim_master_top_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of AXI_sim_master_top_0 (Jaxcie.org:user:AXI_sim_master_top:1.0) from (Rev. 2) to (Rev. 3)
+
+
+
+
+
+
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2015.2.1 (lin64) Build 1302555 Wed Aug  5 13:06:02 MDT 2015
+| Date         : Tue Nov  3 18:06:57 2015
+| Host         : Lappytoppy running 64-bit Linux Mint 17.2 Rafaela
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'AXI_sim_master_top_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of AXI_sim_master_top_0 (Jaxcie.org:user:AXI_sim_master_top:1.0 (Rev. 2)) to current project options.
+
